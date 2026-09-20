@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 export default function ProductDetailPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
@@ -38,7 +40,7 @@ export default function ProductDetailPage() {
       <h2>{product.title}</h2>
       <p>{product.price} kr</p>
 
-      <button className="add-btn">
+      <button className="add-btn" onClick={() => addToCart(product)}>
         Lägg i varukorg
       </button>
 
