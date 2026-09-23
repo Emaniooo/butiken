@@ -12,7 +12,6 @@ export default function App() {
 
   const isActive = (value) => filter === value;
 
-  // Stäng meny
   const closeMenu = () => {
     const menu = document.querySelector(".nav-links");
     if (menu) menu.classList.remove("open");

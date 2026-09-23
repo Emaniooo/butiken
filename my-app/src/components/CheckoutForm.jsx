@@ -1,74 +1,76 @@
-    import { useState } from "react";
+    import { useState, useContext } from "react";
+    import { CartContext } from "../context/CartContext";
 
     export default function CheckoutForm() {
-    const [form, setForm] = useState({
-        name: "",
-        email: "",
-        address: ""
-    });
+    const { cart } = useContext(CartContext);
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [address, setAddress] = useState("");
 
     const [errors, setErrors] = useState({});
+    const [success, setSuccess] = useState("");
 
     function validate() {
         const newErrors = {};
 
-        if (!form.name.trim()) newErrors.name = "Namn är obligatoriskt";
-        if (!form.email.includes("@")) newErrors.email = "Ogiltig e‑post";
-        if (form.address.length < 5) newErrors.address = "Adress är för kort";
+        if (!name.trim()) newErrors.name = "Namn är obligatoriskt";
+        if (!email.includes("@")) newErrors.email = "Ogiltig e‑postadress";
+        if (!address.trim()) newErrors.address = "Adress är obligatorisk";
 
-        setErrors(newErrors);
-
-        return Object.keys(newErrors).length === 0;
+        return newErrors;
     }
 
     function handleSubmit(e) {
         e.preventDefault();
 
-        if (!validate()) return;
+        const validation = validate();
+        setErrors(validation);
 
-        alert("Beställning skickad!");
+        if (Object.keys(validation).length === 0) {
+        setSuccess("Beställning skickad! Tack för ditt köp.");
+        }
     }
 
-    function handleChange(e) {
-        setForm(prev => ({
-        ...prev,
-        [e.target.name]: e.target.value
-        }));
-    }
+    if (cart.length === 0) return null;
 
     return (
-        <form className="checkout-form" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="checkout-form">
+        <h3>Kassa</h3>
+
         <label>
             Namn
             <input
-            name="name"
-            value={form.name}
-            onChange={handleChange}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Ditt namn"
             />
-            {errors.name && <p className="error">{errors.name}</p>}
+            {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
         </label>
 
         <label>
             E‑post
             <input
-            name="email"
-            value={form.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="din@mail.se"
             />
-            {errors.email && <p className="error">{errors.email}</p>}
+            {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
         </label>
 
         <label>
             Adress
             <input
-            name="address"
-            value={form.address}
-            onChange={handleChange}
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            placeholder="Gatuadress"
             />
-            {errors.address && <p className="error">{errors.address}</p>}
+            {errors.address && <p style={{ color: "red" }}>{errors.address}</p>}
         </label>
 
         <button type="submit">Slutför köp</button>
+
+        {success && <p style={{ color: "green" }}>{success}</p>}
         </form>
     );
     }
