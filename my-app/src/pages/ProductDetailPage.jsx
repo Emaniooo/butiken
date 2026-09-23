@@ -1,51 +1,63 @@
-import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import { useCart } from "../context/CartContext";
+import { useEffect, useState, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
-export default function ProductDetailPage() {
+export default function ProductDetailPage({ setFilter }) {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const { addToCart } = useCart();
+  const { addToCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then(res => res.json())
-      .then(data => {
-        setProduct(data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setError(true);
-        setLoading(false);
-      });
+      .then(data => setProduct(data));
   }, [id]);
 
-  if (loading) return <h2>Laddar produkt...</h2>;
-  if (error) return <h2>Kunde inte hämta produkten.</h2>;
-  if (!product) return <h2>Produkten hittades inte.</h2>;
+  if (!product) return <p>Laddar…</p>;
 
   return (
     <div className="product-detail">
 
-      {/* Breadcrumb */}
       <div className="breadcrumb">
-        <Link to="/">Hem</Link> / 
+        <span
+          onClick={() => {
+            setFilter(null);
+            navigate("/");
+          }}
+        >
+          Hem
+        </span>
+        <span> / </span>
+        <span
+          onClick={() => {
+            setFilter(product.category);
+            navigate("/");
+          }}
+        >
+          {product.category === "men's clothing" && "Herr"}
+          {product.category === "women's clothing" && "Dam"}
+          {product.category === "jewelery" && "Accessoarer"}
+          {product.category === "electronics" && "Teknik"}
+        </span>
+        <span> / </span>
         <span className="current">{product.title}</span>
       </div>
 
+      <h1>{product.title}</h1>
+
       <img src={product.image} alt={product.title} />
 
-      <h2>{product.title}</h2>
-      <p>{product.price} kr</p>
+      <p>{product.description}</p>
+
+      <p className="price">{product.price} kr</p>
+
+      <button className="back-btn" onClick={() => navigate(-1)}>
+        ← Tillbaka
+      </button>
 
       <button className="add-btn" onClick={() => addToCart(product)}>
         Lägg i varukorg
-      </button>
-
-      <button className="back-btn" onClick={() => history.back()}>
-        Tillbaka
       </button>
     </div>
   );
