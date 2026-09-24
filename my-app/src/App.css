@@ -49,6 +49,8 @@ button {
 .nav-links {
     display: flex;
     gap: 10px;
+    margin-right: 14rem;
+
 }
 
 .nav-btn {
@@ -274,4 +276,24 @@ button {
 .product-detail .back-btn {
     background: #68b35b !important;
     color: black !important;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.breadcrumb span {
+    cursor: pointer;
+}
+
+.breadcrumb span:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb .current {
+    font-weight: bold;
+    cursor: default;
+    text-decoration: none;
 }
