@@ -414,9 +414,9 @@ button {
         padding: 15px;
         margin-top: 20px;
     }
-    
+
     .cart-badge {
-        margin-left: -9rem; 
+        margin-left: -9rem;
     }
 
     .cart-item {
@@ -515,5 +515,15 @@ button {
     .product-detail img {
         width: 250px;
         height: 250px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .product-detail {
+        max-width: 800px;
     }
 }
