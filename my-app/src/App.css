@@ -48,16 +48,15 @@ button {
 
 .nav-links {
     display: flex;
-    gap: 10px;
-    margin-right: 14rem;
-
+    gap: 70px;
+    margin-right: -8rem;
 }
 
 .nav-btn {
     border: none;
     background: transparent;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
     color: black;
     padding: 5px 10px;
 }
@@ -77,6 +76,7 @@ button {
     font-size: 28px;
     text-decoration: none;
     color: black;
+    margin-left: 10rem;
 }
 
 .cart-count {
@@ -414,6 +414,10 @@ button {
         padding: 15px;
         margin-top: 20px;
     }
+    
+    .cart-badge {
+        margin-left: -9rem; 
+    }
 
     .cart-item {
         flex-direction: column;
@@ -430,7 +434,7 @@ button {
     }
 
     .checkout-form input {
-        padding: 12px;
+        padding: 5px;
         font-size: 15px;
     }
 
@@ -475,3 +479,41 @@ button {
     }
 }
 
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 15px 20px;
+        margin-left: 3px;
+
+    }
+
+    .nav-btn {
+        font-size: 30px;
+        padding: 15px 0px;
+    }
+
+    .nav-links {
+        gap: 50px;
+        margin-right: -9px;
+        height: 100%;
+        width: 70%;
+    }
+
+    .store-layout {
+        padding: 20px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
+    }
+
+    .product-detail {
+        max-width: 85%;
+    }
+
+    .product-detail img {
+        width: 250px;
+        height: 250px;
+    }
+}
