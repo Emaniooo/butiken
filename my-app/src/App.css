@@ -91,8 +91,12 @@ button {
 }
 
 .store-layout {
-    display: grid;
-    padding: 30px;
+    gap: 2rem;
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin-top: 4rem;
 }
 
 .grid {
@@ -198,15 +202,53 @@ button {
 }
 
 .cart-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    padding: 13px;
     border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
 }
 
-.cart-item button {
+.cart-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.cart-price {
+    color: #555;
+    font-size: 19px;
+
+}
+
+.cart-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-right: 8rem;
+
+}
+
+.cart-controls button {
     background: #4d4747;
+    padding: 13px;
+    width: 28px;
+    height: 28px;
+}
+
+.remove-btn {
+    background: #ff4d4d;
+    width: 8rem;
+    height: 3rem;
+    margin-top: 1.5rem;
+}
+
+
+.cart-item button {
     padding: 6px;
 }
 
@@ -488,8 +530,9 @@ button {
     }
 
     .nav-btn {
-        font-size: 30px;
+        font-size: 22px;
         padding: 15px 0px;
+        margin-left: 10px;
     }
 
     .nav-links {
@@ -500,7 +543,32 @@ button {
     }
 
     .store-layout {
-        padding: 20px;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+.cart-badge {
+        margin-left: 0;
+    }
+    .cart {
+        margin-left: 0; /* ta bort desktop-offset */
+        position: static; /* ingen sticky på mobil */
+        margin-top: 1rem;
+        width: 65%;
+
+    }
+    .cart-controls {
+        padding-right: 1rem;
+        padding-bottom: 2rem;
+    }
+    .remove-btn {
+        width: 6rem;
+    }
+
+    .checkout-form {
+        padding: 40px;
+        width: 70%;
     }
 
     .grid {
