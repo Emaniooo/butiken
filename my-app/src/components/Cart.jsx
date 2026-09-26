@@ -19,7 +19,7 @@ export default function Cart() {
             <CartItem key={item.id} item={item} />
         ))}
 
-        <h3>Total: {total} kr</h3>
+        <h3>Total: {total.toFixed(2)} kr</h3>
 
         <button onClick={clearCart}>Töm varukorgen</button>
 
