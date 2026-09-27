@@ -418,6 +418,27 @@ button {
     background: #333;
 }
 
+
+.footer {
+    background: white;
+    padding: 25px;
+    text-align: center;
+    margin-top: 4rem;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+}
+
+.footer-content p {
+    margin: 5px 0;
+    color: #444;
+    font-size: 15px;
+}
+.creator {
+    margin-top: 8px;
+    font-weight: bold;
+    color: #000;
+    opacity: 0.8;
+}
+
 @media (max-width: 600px) {
     body {
         padding: 0;

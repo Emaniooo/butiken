@@ -4,6 +4,7 @@ import StorePage from "./pages/StorePage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import CartBadge from "./components/CartBadge";
+import Footer from "./components/Footer";
 
 export default function App() {
   const [filter, setFilter] = useState(null);
@@ -107,6 +108,7 @@ export default function App() {
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/" element={<StorePage filter={filter} />} />
       </Routes>
+            <Footer />
     </div>
   );
 }
