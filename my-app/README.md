@@ -8,7 +8,7 @@ En modern och responsiv webbshop byggd i React där användare kan bläddra blan
 
 1. Klona projektet  
    ```bash
-   git clone <repo-url>
+   git clone https://github.com/Emaniooo/butiken.git 
 
 2. Installera beroenden
 bash
