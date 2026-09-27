@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import CheckoutForm from "../components/CheckoutForm";
-import Cart from "../components/cart";
+import Cart from "../components/Cart";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
