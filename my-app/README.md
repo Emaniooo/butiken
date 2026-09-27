@@ -1,16 +1,54 @@
-# React + Vite
+# TrendTech – React Webbshop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En modern och responsiv webbshop byggd i React där användare kan bläddra bland produkter, filtrera via kategorier, lägga varor i varukorgen och genomföra ett köp. Webbplatsen innehåller produktlista, produktdetaljer, varukorg med kvantitetshantering, checkout med validering samt en tack‑sida efter slutfört köp. Designen är fullt anpassad för mobil, tablet och desktop.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Starta projektet lokalt
 
-## React Compiler
+1. Klona projektet  
+   ```bash
+   git clone <repo-url>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. Installera beroenden
+bash
+npm install
 
-## Expanding the ESLint configuration
+3.Starta utvecklingsservern
+cd my-app
+npm run dev
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+4. koperia url:n och öppna projektet i webbläsaren
+
+---
+
+## Funktioner
+- Produktlista från FakeStoreAPI  
+- Produktdetaljsida  
+- Filtrering via navbar (Dam, Herr, Accessoarer, Teknik)  
+- Varukorg med kvantitetshantering  
+- Checkout med validering  
+- Tack‑sida efter köp + automatisk tömning av varukorg  
+- LocalStorage‑lagring  
+- Full responsiv design (mobil, tablet, desktop)
+
+---
+
+# Uppfyllda VG‑krav
+
+# 1. Utökad felhantering
+- Checkout‑validering  
+- Tomt‑tillstånd i varukorgen  
+- Felhantering vid API‑hämtning
+
+# 2. Responsiv design
+- Mobilanpassad layout  
+- Skalande grid  
+- Hamburger‑meny i navbar  
+- Checkout + varukorg staplas på mindre skärmar
+
+# 3. Utökad funktionalitet
+- Filtrering via navbar  
+- Breadcrumbs  
+- Tack‑sida efter köp  
+- Automatisk tömning av varukorg  

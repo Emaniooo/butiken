@@ -36,7 +36,7 @@ export default function App() {
             closeMenu();
           }}
         >
-          Klädbutiken
+          TrendTech 
         </Link>
 
         <div
